@@ -1,10 +1,13 @@
-import React from 'react'
+import NavBar from './Components/NavBar'
+import './App.css'
 
- function App() {
+function App() {
 	return (
 		<div>
-			<h1>Knowly</h1>
-			<p>Bienvenido a knowly</p>
+			<NavBar />
+			<main style={{ marginTop: '80px', minHeight: 'calc(100vh - 80px)' }}>
+				{/* Aquí van las páginas */}
+			</main>
 		</div>
 	)
 }
