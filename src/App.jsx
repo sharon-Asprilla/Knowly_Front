@@ -8,6 +8,7 @@ import Login from './Pages/Login'
 import Contacto from './Pages/Contacto'
 import Cursos from './Pages/Cursos'
 import Estudiantes from './Pages/Estudiantes'
+import Certificados from './Pages/Certificados'
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 					<Route path="/contacto" element={<Contacto />} />
 					<Route path="/cursos" element={<Cursos />} />
 					<Route path="/estudiantes" element={<Estudiantes />} />
+					<Route path="/certificados" element={<Certificados />} />
 				</Routes>
 			</main>
 

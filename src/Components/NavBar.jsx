@@ -13,7 +13,7 @@ const NavBar = function () {
         <Link to="/contacto">contacto</Link>
         <a href="#">redes</a>
         <Link to="/login">login</Link>
-        <a href="#">certificado</a>
+        <Link to="/certificados">certificado</Link>
 
         {/* Tarjeta Membresía */}
         <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>

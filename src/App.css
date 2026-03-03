@@ -279,3 +279,93 @@ footer a:hover {
 .btn-social.google:hover { background: #fbe9e7; }
 .btn-social.facebook:hover { background: #e9f0ff; }
 
+/* Certificados */
+.certificates-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 24px;
+}
+
+.certificates-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 24px;
+}
+
+.certificates-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.certificate-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(165, 107, 246, 0.15);
+    border-left: 4px solid #a56bf6;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(165, 107, 246, 0.25);
+}
+
+.certificate-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.certificate-title {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    font-weight: 700;
+}
+
+.certificate-info {
+    color: #666;
+    font-size: 13px;
+    margin: 0;
+}
+
+.certificate-grade {
+    color: #a56bf6;
+    font-size: 13px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.certificate-download-btn {
+    background: linear-gradient(135deg, #a56bf6 0%, #c8a0ff 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: opacity 0.3s ease;
+    align-self: flex-start;
+}
+
+.certificate-download-btn:hover {
+    opacity: 0.9;
+}
+
