@@ -12,7 +12,7 @@ const NavBar = function () {
         </Link>
 
         <Link to="/cursos">cursos</Link>
-        <Link to="/contacto">contacto</Link>
+        <Link to="/contacto">comunidad</Link>
         <Link to="/blogs">blogs</Link>
         <Link to="/certificados">certificado</Link>
         {/* Tarjeta Membresía */}
