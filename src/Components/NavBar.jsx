@@ -9,10 +9,10 @@ const NavBar = function () {
       <nav className="NavBar">
         <img src="/src/Assets/logo_knowly-removebg-preview.png" alt="logo" />
 
-        <Link to="/cursos">cursos</Link>
-        <Link to="/contacto">contacto</Link>
-        <a href="#">redes</a>
-        <Link to="/certificados">certificado</Link>
+        <Link to="/cursos">Cursos</Link>
+        <Link to="/contacto">Contacto</Link>
+        <a href="#">Redes</a>
+        <Link to="/certificados">Certificado</Link>
 
         {/* Tarjeta Membresía */}
         <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
