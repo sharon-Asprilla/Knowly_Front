@@ -11,10 +11,10 @@ const NavBar = function () {
           <img src="/src/Assets/logo_knowly-removebg-preview.png" alt="logo" />
         </Link>
 
-        <Link to="/cursos">cursos</Link>
-        <Link to="/contacto">comunidad</Link>
-        <Link to="/blogs">blogs</Link>
-        <Link to="/certificados">certificado</Link>
+        <Link to="/cursos">Cursos</Link>
+        <Link to="/contacto">Comunidad</Link>
+        <Link to="/blogs">Blogs</Link>
+        <Link to="/certificados">Certificado</Link>
         {/* Tarjeta Membresía */}
         <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
           Membresía
@@ -23,7 +23,7 @@ const NavBar = function () {
 
 
         
-
+|
         {/* Subtarjeta Estudiantes */}
         {open && (
           <div style={{ marginLeft: "5px" }}>
