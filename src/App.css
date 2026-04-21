@@ -24,8 +24,8 @@ body{
     position: fixed;
     top: 0;
     left: 0px;
-    right: 10px;
-    z-index: 100px;
+    right: 0px;
+    z-index: 1000;
     flex-wrap: wrap;
 
     /* make navbar more opaque for visibility */
@@ -134,7 +134,7 @@ footer a:hover {
 .main{
   flex: 1;                 /* empuja el footer hacia abajo */
   padding: 24px;           /* separación del header y bordes */
-  padding-top: 40px;       /* más aire debajo del header */
+  padding-top: 130px;      /* Espacio suficiente para que no lo tape la Navbar de 90px */
 }
 
 /* Estudiantes: estilos de planes */
@@ -377,4 +377,3 @@ footer a:hover {
 .certificate-download-btn:hover {
     opacity: 0.9;
 }
-
