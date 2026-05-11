@@ -4,7 +4,7 @@ import logo from "../Assets/logo_knowly-removebg-preview.png";
 
 function Home() {
   return (
-    <div className="min-h-screen text-white font-sans flex flex-col">
+    <div className="main min-h-screen text-white font-sans flex flex-col">
       
       {/* EL NAVBAR ya viene de App.jsx, por lo que este contenedor flex-grow 
           asegura que el contenido ocupe el espacio restante y empuje el footer al final.
@@ -19,7 +19,7 @@ function Home() {
             className="w-40 h-40 md:w-52 md:h-52 mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)]" 
           />
 
-          <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter" style={{ textShadow: '0_10px_20px_rgba(0,0,0,0.4)' }}>
+          <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter" style={{ textShadow: '0 10px 20px rgba(0,0,0,0.4)' }}>
             Bienvenido a <span className="text-blue-200">Knowly</span>
           </h1>
 
@@ -28,7 +28,7 @@ function Home() {
           </p>
 
           <Link 
-            to="/Login" 
+            to="/login" 
             className="group relative inline-flex items-center justify-center px-14 py-4 font-bold text-white transition-all duration-300 bg-blue-600 rounded-2xl hover:bg-blue-500 hover:scale-105 shadow-[0_10px_20px_rgba(37,99,235,0.3)]"
           >
             Comenzar ahora

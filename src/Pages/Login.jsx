@@ -2,37 +2,22 @@ import { useState, useEffect } from "react"
 import { end_points } from "../Services/api"
 import { redirect } from "../Helpers/alerts"
 import { saveLocalStorage } from "../Helpers/local-storage"
-// mockapi de validacion en react
-// temporal 
-// coloque que "contraseña" es contrasea porque en mokapi no deja poner la ñ  y es una simulacion mientras tanto 
+ 
 
 const Login = () => {
   const [getCorreo, setCorreo] = useState("")
-  const [getContraseña, setContrasea] = useState("")
+  const [getContrasenia, setContrasenia] = useState("")
+  const [getRol, setRol] = useState("")
   const [getUsuario, setUsuario] = useState([])
-  const [cargando, setCargando] = useState(true)
-  const [error, setError] = useState(null)
 
   function fetchUsuario() {
-    setCargando(true)
     fetch(end_points.usuario)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Error del servidor: ${response.status}`)
-        }
-        return response.json()
-      })
+      .then((response) => response.json())
       .then((data) => {
-        console.log("Usuarios obtenidos de mokapi:", data)
+        console.log("DATOS DE LA API:", data)
         setUsuario(data)
-        setError(null)
-        setCargando(false)
       })
-      .catch((error) => {
-        console.error("Error al obtener usuarios:", error)
-        setError(`No se pudo conectar a mokapi: ${error.message}`)
-        setCargando(false)
-      })
+      .catch((error) => console.log(error))
   }
 
   useEffect(() => {
@@ -40,31 +25,26 @@ const Login = () => {
   }, [])
 
   const findUsuario = () => {
-    console.log("Correo ingresado:", getCorreo)
-    console.log("Contraseña ingresada:", getContraseña)
-    console.log("Todos los usuarios:", JSON.stringify(getUsuario, null, 2))
-    
-    // Búsqueda simple sin normalizaciones complicadas
-    let usuario = getUsuario.find((item) => 
-      item.correo === getCorreo && item.contrasea === getContraseña
+    return getUsuario.find(
+      (item) =>
+        item.correo?.trim().toLowerCase() === getCorreo.trim().toLowerCase() &&
+        item.contrasenia === getContrasenia && 
+        item.rol?.toUpperCase() === getRol.toUpperCase()
     )
-    
-    console.log("¿Usuario encontrado?:", usuario)
-    return usuario
   }
 
-
   function signIn(e) {
-    e.preventDefault()
-
-    const usuarioEncontrado = findUsuario()
-    console.log("Usuario encontrado:", usuarioEncontrado)
+    e.preventDefault();
+    const userMatched = findUsuario();
     
-    if (usuarioEncontrado) {
-      saveLocalStorage("Usuario", usuarioEncontrado)
-      redirect(usuarioEncontrado.nombre + " Bienvenido al sistema...", "/home", "success")
+    console.log("Intentando ingresar con:", { correo: getCorreo, rol: getRol });
+    console.log("Usuario encontrado:", userMatched);
+
+    if (userMatched) {
+      saveLocalStorage("Usuario", userMatched)
+      redirect(userMatched.nombre + " Bienvenido al sistema...", "/home", "success")
     } else {
-      redirect("El correo o la contraseña son incorrectos...", "/", "error")
+      redirect("El correo, la contraseña o el rol son incorrectos...", "/", "error")
     }
   }
 
@@ -72,24 +52,30 @@ const Login = () => {
     <section className="Login">
       <div className="login-container">
         <h2>Iniciar sesión</h2>
-        {error && <div style={{color: "red", marginBottom: "10px"}}>⚠️ {error}</div>}
         <form className="login-form" onSubmit={signIn}>
           <input 
             type="text" 
             placeholder="Correo" 
             required 
-            disabled={cargando}
             onChange={(e) => setCorreo(e.target.value)} 
           />
           <input 
             type="password" 
             placeholder="Contraseña" 
             required 
-            disabled={cargando}
-            onChange={(e) => setContrasea(e.target.value)} 
+            onChange={(e) => setContrasenia(e.target.value)} 
           />
-          <button className="btn-primary" type="submit" disabled={cargando}>
-            {cargando ? "Cargando..." : "Entrar"}
+          <select 
+            required 
+            value={getRol}
+            onChange={(e) => setRol(e.target.value)}
+          >
+            <option value="" disabled>Selecciona tu rol</option>
+            <option value="Estudiante">ESTUDIANTE</option>
+            <option value="Profesor">PROFESOR</option>
+          </select>
+          <button className="btn-primary" type="submit">
+            Entrar
           </button>
         </form>
 

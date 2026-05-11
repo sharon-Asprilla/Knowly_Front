@@ -1,5 +1,3 @@
-import { CheckCircle } from "lucide-react"
-
 export default function CourseContent({ lesson }) {
     return (
         <section className="flex min-h-[calc(100vh-140px)] items-start justify-center px-6 pb-10">
@@ -14,7 +12,21 @@ export default function CourseContent({ lesson }) {
                         {lesson.title}
                     </h2>
 
-                    <CheckCircle size={32} className="text-white/80" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white/80"
+                    >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
                 </div>
 
                 <div

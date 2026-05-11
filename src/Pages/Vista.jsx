@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { getLocalStorage } from "../Helpers/local-storage"
 
 import CourseSidebar from "../Components/CourseSidebar.jsx"
 import CourseContent from "../Components/CourseContent.jsx"
@@ -42,16 +43,42 @@ const coursesData = {
     },
 }
 
+// Función para convertir links normales de YouTube a links de incrustación (Embed)
+const formatYoutubeUrl = (url) => {
+    if (!url) return "";
+    if (url.includes("youtube.com/embed/")) return url;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? `https://www.youtube.com/embed/${match[2]}` : url;
+}
+
 export default function Vista() {
-
     const { slug } = useParams()
-
-    const [currentLesson, setCurrentLesson] = useState(
-        coursesData[slug]
-    )
+    const [currentLesson, setCurrentLesson] = useState(null)
+    const [sections, setSections] = useState([])
 
     useEffect(() => {
-        setCurrentLesson(coursesData[slug])
+        const dynamicCourses = getLocalStorage("Cursos_Dinamicos") || [];
+        const dynamicMatch = dynamicCourses.find(c => c.slug === slug);
+
+        if (dynamicMatch) {
+            // Si es un curso subido por profesor, creamos la estructura de lección al vuelo
+            const lesson = {
+                title: dynamicMatch.name,
+                video: formatYoutubeUrl(dynamicMatch.video),
+                description: dynamicMatch.description
+            };
+            setCurrentLesson(lesson);
+            // Creamos una sección única para que el Sidebar la muestre
+            setSections([{
+                title: "Contenido del Instructor",
+                lessons: [lesson]
+            }]);
+        } else {
+            // Si es un curso base del sistema
+            setCurrentLesson(coursesData[slug]);
+            setSections(null); // Usará los predefinidos en el Sidebar
+        }
     }, [slug])
 
     if (!currentLesson) {
@@ -66,7 +93,7 @@ export default function Vista() {
         <main
             className="min-h-screen bg-gradient-to-br from-[#8B5CF6] via-[#A78BFA] to-[#C4B5FD] text-white"
             style={{
-                paddingTop: "32px",
+                paddingTop: "120px",
                 paddingBottom: "64px",
             }}
         >
@@ -83,6 +110,7 @@ export default function Vista() {
                         currentLesson={currentLesson}
                         setCurrentLesson={setCurrentLesson}
                         slug={slug}
+                        sections={sections}
                     />
 
                     <CourseContent lesson={currentLesson} />

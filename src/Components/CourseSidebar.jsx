@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { ChevronDown, ChevronUp } from "lucide-react"
 
 const courseSections = {
 
@@ -119,13 +118,15 @@ export default function CourseSidebar({
     currentLesson,
     setCurrentLesson,
     slug,
+    sections: propSections
 }) {
 
     const [openIndex, setOpenIndex] = useState(0)
 
     const progress = 0
 
-    const sections = courseSections[slug] || []
+    // Si recibe secciones por prop (dinámicos), las usa; si no, usa las hardcodeadas
+    const sections = propSections || courseSections[slug] || []
 
     return (
         <aside
@@ -187,9 +188,35 @@ export default function CourseSidebar({
                                     </span>
 
                                     {isOpen ? (
-                                        <ChevronUp size={20} className="shrink-0 text-white/80" />
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="shrink-0 text-white/80"
+                                        >
+                                            <path d="m18 15-6-6-6 6" />
+                                        </svg>
                                     ) : (
-                                        <ChevronDown size={20} className="shrink-0 text-white/80" />
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="shrink-0 text-white/80"
+                                        >
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
                                     )}
 
                                 </button>

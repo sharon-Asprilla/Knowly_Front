@@ -83,7 +83,7 @@ function Contacto() {
   };
 
   return (
-    <div className="main flex flex-col items-center pt-48 pb-12">
+    <div className="main flex flex-col items-center pt-10 pb-12">
       <div className="w-full max-w-3xl px-4">
         <header className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-white drop-shadow-md mb-2">Reseñas y Comentarios</h2>

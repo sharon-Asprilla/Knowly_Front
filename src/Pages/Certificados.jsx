@@ -21,7 +21,7 @@ function Certificados() {
   ];
 
   return (
-    <div className="certificates-container">
+    <div className="main certificates-container">
       <h1>Mis Certificados</h1>
       <p className="certificates-subtitle">Cursos completados exitosamente</p>
       
