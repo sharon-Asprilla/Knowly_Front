@@ -2,7 +2,6 @@
 
 [knowly]
 
-<<<<<<< HEAD
 ## Estructura de la API
 La API devuelve los usuarios con la siguiente estructura de campos obligatorios:
 
