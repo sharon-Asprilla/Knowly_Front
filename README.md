@@ -2,6 +2,7 @@
 
 [knowly]
 
+<<<<<<< HEAD
 ## Estructura de la API
 La API devuelve los usuarios con la siguiente estructura de campos obligatorios:
 
@@ -18,6 +19,11 @@ La API devuelve los usuarios con la siguiente estructura de campos obligatorios:
 ```
 
 Endpoint: https://69e57d38ce4e908a155e1726.mockapi.io/usuario
+=======
+## consumo de la api del back
+https://github.com/sharon-Asprilla/knowly_back
+trae los datos de la api
+>>>>>>> 4bb98205b2f10121940f987eb744ac9d7e311b73
 
 ## Introducción
 
