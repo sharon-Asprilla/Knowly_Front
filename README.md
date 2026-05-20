@@ -2,10 +2,22 @@
 
 [knowly]
 
-## simulacion de la api temporal
-con mokapi creamos una entidad de usuario y lo conectamos por ende es una simulacion y toco que tener otra forma de poder capturar datos con la api por lo cual hice algunos cambios en las peticiones y por ende se ve cambio de nombre en la contraseña ya que mokapi no permite la ñ por ende se llama "contrasea"
+## Estructura de la API
+La API devuelve los usuarios con la siguiente estructura de campos obligatorios:
 
-api conectada de mokapi : https://69e57d38ce4e908a155e1726.mockapi.io/usuario, de ahi hace todo lla peticion del fetch y devuelve los datos mediante a  su peticion, gracias al get que consulta ___________________________ esta configuracion en la api.js es temporal
+```json
+{
+  "ideusuario": "00232",
+  "rol": "PROFESOR",
+  "nombre": "luisa",
+  "apellido": "Ramírez",
+  "documento": "287654321",
+  "correo": "luisra@gmail.edu.com",
+  "contrasenia": "87654321"
+}
+```
+
+Endpoint: https://69e57d38ce4e908a155e1726.mockapi.io/usuario
 
 ## Introducción
 
@@ -97,7 +109,3 @@ src/
 | [Sharon Asprilla]       | Backend / Base de datos    | @[sharon-asprilla] |
 | [Juan Jose Castrillon]  | frond/create               | @[Juanjo0828]         |
 | [Jeronimo Taborda]      | backend                    | @[jeritoX10]         |
-
-
-
-
